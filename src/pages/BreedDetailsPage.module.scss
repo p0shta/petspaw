@@ -1,0 +1,126 @@
+@import '../sass/variables';
+
+.nav {
+    display: flex;
+}
+
+.btnBack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    background: $secondary-color;
+    border-radius: 10px;
+    border: none;
+}
+
+.breeds {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 143px;
+    height: 40px;
+    margin-right: 10px;
+    background: $secondary-color;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    color: $primary-color;
+}
+
+.id {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 40px;
+    margin-right: 10px;
+    background: $primary-color;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    color: $accent-color;
+}
+.view {
+    width: 100%;
+    margin-top: 20px;
+}
+.imgWrap {
+    width: 100%;
+    height: 360px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.info {
+    margin-top: 50px;
+    border: 2px solid #fbe0dc;
+    border-radius: 20px;
+    position: relative;
+    padding: 26px 40px 40px 40px;
+}
+
+.titleWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    padding: 5px 40px;
+
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 20px;
+}
+
+.title {
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 52px;
+    color: #1d1d1d;
+}
+
+.subtitle {
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    color: #8c8c8c;
+}
+
+.featuresWrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.featuresWrap div {
+    width: 270px;
+}
+
+.mainText {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    color: #1d1d1d;
+}
+
+p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 23px;
+    color: #8c8c8c;
+}
