@@ -1,0 +1,21 @@
+@import '../../sass/variables';
+
+.container {
+    min-width: 1440px;
+    min-height: 900px;
+    padding: 30px 30px 30px 147px;
+    display: flex;
+    justify-content: center;
+}
+
+.leftSide {
+    width: 486px;
+    margin-right: 117px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.rightSide {
+    width: 680px;
+    min-height: 90vh;
+}
