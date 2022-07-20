@@ -10,6 +10,7 @@ import GalleryPage from 'pages/GalleryPage';
 import BreedDetails from '../pages/BreedDetailsPage';
 import SearchPage from 'pages/SearchPage';
 import Searchbar from './Searchbar/Searchbar';
+import InterestItemsPage from 'pages/InterestItemsPage';
 
 export const App = () => {
     const [search, setSearch] = useState('');
@@ -36,6 +37,9 @@ export const App = () => {
                         element={<SearchPage search={search} />}
                     />
                     <Route path="gallery" element={<GalleryPage />} />
+                    <Route path="favorites" element={<InterestItemsPage />} />
+                    <Route path="likes" element={<InterestItemsPage />} />
+                    <Route path="dislikes" element={<InterestItemsPage />} />
                 </Routes>
             </Layout>
         </>

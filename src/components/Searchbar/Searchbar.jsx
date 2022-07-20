@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import searchIcon from '../../images/icons/search.svg';
 import likeIcon from '../../images/icons/likeFace.svg';
@@ -37,19 +38,19 @@ export default function Searchbar({ onSubmit }) {
             </form>
             <ul className={s.list}>
                 <li className={s.item}>
-                    <a href="https://reactrouter.com/" className={s.link}>
+                    <Link to="likes" className={s.link}>
                         <img src={likeIcon} alt="likeIcon" />
-                    </a>
+                    </Link>
                 </li>
                 <li className={s.item}>
-                    <a href="https://reactrouter.com/" className={s.link}>
+                    <Link to="favorites" className={s.link}>
                         <img src={favIcon} alt="favIcon" />
-                    </a>
+                    </Link>
                 </li>
                 <li className={s.item}>
-                    <a href="https://reactrouter.com/" className={s.link}>
+                    <Link to="dislikes" className={s.link}>
                         <img src={dislikeIcon} alt="dislikeIcon" />
-                    </a>
+                    </Link>
                 </li>
             </ul>
         </div>
