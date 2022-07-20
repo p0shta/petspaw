@@ -1,14 +1,20 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import searchIcon from '../../images/icons/search.svg';
 import likeIcon from '../../images/icons/likeFace.svg';
 import favIcon from '../../images/icons/favHeart.svg';
 import dislikeIcon from '../../images/icons/dislikeFace.svg';
 
+import likeIconWhite from '../../images/icons/likeFaceBigWhite.svg';
+import favIconWhite from '../../images/icons/favHeartBigWhite.svg';
+import dislikeIconWhite from '../../images/icons/dislikeFaceBigWhite.svg';
+
 import s from './Searchbar.module.scss';
 
 export default function Searchbar({ onSubmit }) {
+    const { pathname } = useLocation();
+    const currentPage = pathname.slice(1);
     const [search, setSearch] = useState('');
 
     const handleSubmit = e => {
@@ -38,18 +44,54 @@ export default function Searchbar({ onSubmit }) {
             </form>
             <ul className={s.list}>
                 <li className={s.item}>
-                    <Link to="likes" className={s.link}>
-                        <img src={likeIcon} alt="likeIcon" />
+                    <Link
+                        to="likes"
+                        className={
+                            currentPage !== 'likes' ? s.link : s.linkActive
+                        }
+                    >
+                        <img
+                            src={
+                                currentPage === 'likes'
+                                    ? likeIconWhite
+                                    : likeIcon
+                            }
+                            alt="likeIcon"
+                        />
                     </Link>
                 </li>
                 <li className={s.item}>
-                    <Link to="favorites" className={s.link}>
-                        <img src={favIcon} alt="favIcon" />
+                    <Link
+                        to="favorites"
+                        className={
+                            currentPage !== 'favorites' ? s.link : s.linkActive
+                        }
+                    >
+                        <img
+                            src={
+                                currentPage === 'favorites'
+                                    ? favIconWhite
+                                    : favIcon
+                            }
+                            alt="favIcon"
+                        />
                     </Link>
                 </li>
                 <li className={s.item}>
-                    <Link to="dislikes" className={s.link}>
-                        <img src={dislikeIcon} alt="dislikeIcon" />
+                    <Link
+                        to="dislikes"
+                        className={
+                            currentPage !== 'dislikes' ? s.link : s.linkActive
+                        }
+                    >
+                        <img
+                            src={
+                                currentPage === 'dislikes'
+                                    ? dislikeIconWhite
+                                    : dislikeIcon
+                            }
+                            alt="dislikeIcon"
+                        />
                     </Link>
                 </li>
             </ul>

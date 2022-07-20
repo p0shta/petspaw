@@ -6,7 +6,8 @@ import './index.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <BrowserRouter basename="/p0shta/">
+        {/* <BrowserRouter basename="/p0shta/"> */}
+        <BrowserRouter>
             <App />
         </BrowserRouter>
     </React.StrictMode>

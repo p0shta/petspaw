@@ -1,0 +1,155 @@
+@import '../sass/variables';
+
+.nav {
+    display: flex;
+}
+
+.subtitle {
+    padding: 20px 0;
+    font-size: 20px;
+    line-height: 29px;
+    color: #8c8c8c;
+}
+
+.btnBack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    background: $secondary-color;
+    border-radius: 10px;
+    border: none;
+}
+
+.breeds {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 143px;
+    height: 40px;
+    margin-right: 10px;
+    background: $secondary-color;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    color: $primary-color;
+}
+
+.view {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.imgWrap {
+    width: 100%;
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.votingWrap {
+    position: absolute;
+    width: 248px;
+    height: 80px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3px;
+    border: 3px solid #fff;
+    border-radius: 30px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.votingWrap div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #97eab9;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.votingWrap div:first-child:hover {
+    background: rgba(151, 234, 185, 0.7);
+}
+
+.votingWrap div:first-child + div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ff868e;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.votingWrap div:first-child + div:hover {
+    background: rgba(255, 134, 142, 0.7);
+}
+
+.votingWrap div:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffd280;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.votingWrap div:last-child:hover {
+    background: rgba(255, 210, 128, 0.7);
+}
+
+.activityList {
+    margin-top: 40px;
+    height: 300px;
+    overflow: scroll;
+}
+
+.activityList::-webkit-scrollbar {
+    display: none;
+}
+
+.activity {
+    padding: 18px 15px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    background: #f8f8f7;
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #8c8c8c;
+}
+
+.activityTime {
+    padding: 3px 10px;
+    margin-right: 10px;
+    background: #ffffff;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1d1d1d;
+}
+
+.activityText {
+    margin: 0 5px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1d1d1d;
+}
+
+.activityImg {
+    margin-left: auto;
+}
