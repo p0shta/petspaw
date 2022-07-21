@@ -1,6 +1,3 @@
-import { Link } from 'react-router-dom';
-
-import back from '../../images/icons/back.svg';
 import sortUp from '../../images/icons/sort-up.svg';
 import sortDown from '../../images/icons/sort-down.svg';
 import sortUpChecked from '../../images/icons/sort-up-checked.svg';
@@ -13,16 +10,11 @@ export default function BreedsNavbar({
     handleLimitChange,
     handleBreedChange,
     limit,
-    handleSortChange,
-    sort,
+    handleOrderChange,
+    order,
 }) {
     return (
-        <nav className={s.nav}>
-            <Link to=".." className={s.btnBack}>
-                <img src={back} alt="back" />
-            </Link>
-            <div className={s.breeds}>BREEDS</div>
-
+        <div className={s.navBreeds}>
             <select
                 id="breeds"
                 name="breeds"
@@ -56,18 +48,18 @@ export default function BreedsNavbar({
             <button
                 type="button"
                 className={s.btnSort}
-                onClick={() => handleSortChange(true)}
+                onClick={() => handleOrderChange(true)}
             >
-                <img src={sort ? sortUpChecked : sortUp} alt="sortUp" />
+                <img src={order ? sortUpChecked : sortUp} alt="sortUp" />
             </button>
 
             <button
                 type="button"
                 className={s.btnSort}
-                onClick={() => handleSortChange(false)}
+                onClick={() => handleOrderChange(false)}
             >
-                <img src={sort ? sortDown : sortDownChecked} alt="sortUp" />
+                <img src={order ? sortDown : sortDownChecked} alt="sortUp" />
             </button>
-        </nav>
+        </div>
     );
 }

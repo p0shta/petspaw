@@ -1,0 +1,58 @@
+@import '../../sass/variables';
+
+.form {
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10px;
+    column-gap: 20px;
+    padding: 20px;
+    background: #f8f8f7;
+    border-radius: 20px;
+}
+
+.listItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.listItem:last-child div {
+    display: flex;
+    flex-direction: row;
+}
+
+.listItem:last-child div select {
+    margin-right: 10px;
+    width: 100%;
+}
+
+.listSelect {
+    height: 40px;
+    padding: 8px 10px;
+    background: #ffffff;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #8c8c8c;
+}
+
+.listTitle {
+    display: block;
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 1.8;
+    color: #8c8c8c;
+}
+
+.listBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 40px;
+    min-height: 40px;
+    background: #ffffff;
+    border-radius: 10px;
+    border: none;
+}

@@ -1,58 +1,15 @@
 @import '../sass/variables';
 
-.nav {
-    display: flex;
-}
-
 .subtitle {
-    padding: 20px 0;
+    margin-bottom: 20px;
     font-size: 20px;
     line-height: 29px;
     color: #8c8c8c;
 }
 
-.btnBack {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    background: $secondary-color;
-    border-radius: 10px;
-    border: none;
-}
-
-.breeds {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 143px;
-    height: 40px;
-    margin-right: 10px;
-    background: $secondary-color;
-    border-radius: 10px;
+.subtitle > span {
     font-weight: 500;
     font-size: 20px;
-    line-height: 1.5;
-    letter-spacing: 2px;
-    color: $primary-color;
-}
-
-.parent {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    // grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-}
-
-.image {
-    height: 100%;
-    object-fit: cover;
-}
-
-.li {
-    border-radius: 20px;
-    overflow: hidden;
+    line-height: 29px;
+    color: #1d1d1d;
 }

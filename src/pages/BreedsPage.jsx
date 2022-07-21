@@ -12,7 +12,7 @@ export default function BreedsPage() {
     const [breed, setBreed] = useState(null);
     const [limit, setLimit] = useState(5);
     const [filteredBreeds, setFilteredBreeds] = useState(null);
-    const [sort, setSort] = useState(true);
+    const [order, setOrder] = useState(true);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function BreedsPage() {
             return;
         }
 
-        if (sort) {
+        if (order) {
             const filter = breeds
                 .slice(0, limit)
                 .sort((a, b) => a.name.localeCompare(b.name));
@@ -39,7 +39,7 @@ export default function BreedsPage() {
                 .sort((a, b) => b.name.localeCompare(a.name));
             setFilteredBreeds(filter);
         }
-    }, [limit, breeds, sort]);
+    }, [limit, breeds, order]);
 
     if (breed) {
         return <Navigate to={`/breeds/${breed}`} replace />;
@@ -52,11 +52,11 @@ export default function BreedsPage() {
                     breeds={breeds}
                     handleBreedChange={setBreed}
                     limit={limit}
-                    sort={sort}
+                    order={order}
                     handleLimitChange={setLimit}
-                    handleSortChange={setSort}
+                    handleOrderChange={setOrder}
                 />
-                {loading ? <Loader /> : <Grid breeds={filteredBreeds} />}
+                {loading ? <Loader /> : <Grid items={filteredBreeds} />}
             </Section>
         </>
     );

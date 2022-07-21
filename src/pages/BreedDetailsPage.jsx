@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getAllBreeds } from '../services/api-service';
 import Section from 'components/Section/Section';
 import Loader from 'components/Loader/Loader';
-import back from '../images/icons/back.svg';
 
 import s from './BreedDetailsPage.module.scss';
 
@@ -25,13 +24,6 @@ export default function BreedDetailsPage() {
     return (
         <>
             <Section>
-                <nav className={s.nav}>
-                    <Link to="/breeds" className={s.btnBack}>
-                        <img src={back} alt="back" />
-                    </Link>
-                    <div className={s.breeds}>BREEDS</div>
-                    <div className={s.id}>{id}</div>
-                </nav>
                 {loading && <Loader />}
 
                 {breed &&

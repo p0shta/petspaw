@@ -7,13 +7,13 @@ import navGallery from '../../images/navGallery.png';
 
 import s from './Sidebar.module.scss';
 
-const navItemsData = [
-    { title: 'voting', img: navVoting, background: '#B4B7FF' },
-    { title: 'breeds', img: navBreeds, background: '#97EAB9' },
-    { title: 'gallery', img: navGallery, background: '#FFD280' },
-];
-
 export default function Sidebar() {
+    const navItemsData = [
+        { title: 'voting', img: navVoting, background: '#B4B7FF' },
+        { title: 'breeds', img: navBreeds, background: '#97EAB9' },
+        { title: 'gallery', img: navGallery, background: '#FFD280' },
+    ];
+
     return (
         <>
             <NavLink to="/">

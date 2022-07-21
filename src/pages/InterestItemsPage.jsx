@@ -1,16 +1,14 @@
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import Section from 'components/Section/Section';
-import back from '../images/icons/back.svg';
-import Loader from 'components/Loader/Loader';
+import Grid from 'components/Grid/Grid';
 
 import s from './InterestItemsPage.module.scss';
 
 export default function InterestItemsPage() {
     const { pathname } = useLocation();
     const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         setItems(
@@ -23,40 +21,11 @@ export default function InterestItemsPage() {
     return (
         <>
             <Section>
-                <nav className={s.nav}>
-                    <Link to=".." className={s.btnBack}>
-                        <img src={back} alt="back" />
-                    </Link>
-                    <div className={s.breeds}>
-                        {pathname.toUpperCase().slice(1)}
-                    </div>
-                </nav>
-
-                {loading && <Loader />}
-
                 {items.length === 0 ? (
                     <p className={s.subtitle}>No item found</p>
                 ) : null}
 
-                {!loading && items ? (
-                    <ul className={s.parent}>
-                        {items &&
-                            items.map(item => {
-                                const { id, url } = item;
-                                return (
-                                    <li className={s.li} key={id}>
-                                        <Link to={`/`}>
-                                            <img
-                                                src={url}
-                                                alt={item.breeds[0]?.name}
-                                                className={s.image}
-                                            />
-                                        </Link>
-                                    </li>
-                                );
-                            })}
-                    </ul>
-                ) : null}
+                {items && <Grid items={items} />}
             </Section>
         </>
     );

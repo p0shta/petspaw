@@ -1,9 +1,7 @@
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getBreedForVoting } from '../services/api-service';
 import Section from 'components/Section/Section';
 import Loader from 'components/Loader/Loader';
-import back from '../images/icons/back.svg';
 
 import likeIcon from '../images/icons/likeFaceWhite.svg';
 import favIcon from '../images/icons/favHeartWhite.svg';
@@ -21,8 +19,10 @@ export default function VotingPage({ onActivityClick, logActivity }) {
 
     useEffect(() => {
         setLoading(true);
-
-        getBreedForVoting().then(setBreed).finally(setLoading(false));
+        getBreedForVoting().then(data => {
+            setBreed(data);
+            setLoading(false);
+        });
     }, []);
 
     const addLikedToStorage = item => {
@@ -58,12 +58,6 @@ export default function VotingPage({ onActivityClick, logActivity }) {
     return (
         <>
             <Section>
-                <nav className={s.nav}>
-                    <Link to=".." className={s.btnBack}>
-                        <img src={back} alt="back" />
-                    </Link>
-                    <div className={s.breeds}>Voting</div>
-                </nav>
                 {loading && <Loader />}
 
                 {breed &&

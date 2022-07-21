@@ -12,3 +12,14 @@ export const getBreedForVoting = async () => {
     const data = await res.json();
     return data;
 };
+export const getFilteredGallery = async (limit, type) => {
+    const res = await fetch(
+        `${BASE_URL}images/search?format=all&limit=${limit}&mime_types=${type}`
+    );
+    const data = await res.json();
+    return data;
+};
+// https://api.thedogapi.com/v1/images/search?breed_id=pk1AAdloG&format=all&limit=10&order=desc&mime_types=all
+// breed_id=${breed.id}
+
+// breed_id=HJ1297iE7

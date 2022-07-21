@@ -24,7 +24,7 @@ export const App = () => {
     const handleSubmit = query => {
         setSearch(query);
 
-        navigate('/breeds/search', { replace: true });
+        navigate('/search', { replace: true });
     };
 
     const handleActivity = (itemId, action, activity) => {
@@ -51,7 +51,7 @@ export const App = () => {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route
-                        path="voting"
+                        path="/voting"
                         element={
                             <VotingPage
                                 onActivityClick={handleActivity}
@@ -59,16 +59,16 @@ export const App = () => {
                             />
                         }
                     />
-                    <Route path="breeds" element={<BreedsPage />} />
-                    <Route path="breeds/:id" element={<BreedDetails />} />
+                    <Route path="/breeds" element={<BreedsPage />} />
+                    <Route path="/breeds/:id" element={<BreedDetails />} />
                     <Route
-                        path="breeds/search"
+                        path="search"
                         element={<SearchPage search={search} />}
                     />
-                    <Route path="gallery" element={<GalleryPage />} />
-                    <Route path="favorites" element={<InterestItemsPage />} />
-                    <Route path="likes" element={<InterestItemsPage />} />
-                    <Route path="dislikes" element={<InterestItemsPage />} />
+                    <Route path="/gallery" element={<GalleryPage />} />
+                    <Route path="/favorites" element={<InterestItemsPage />} />
+                    <Route path="/likes" element={<InterestItemsPage />} />
+                    <Route path="/dislikes" element={<InterestItemsPage />} />
                 </Routes>
             </Layout>
         </>

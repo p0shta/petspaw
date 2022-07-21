@@ -4,7 +4,6 @@ import s from './Layout.module.scss';
 
 export default function Layout({ children }) {
     const { pathname } = useLocation();
-
     return (
         <main className={s.container}>
             <aside className={s.leftSide}>{children[0]}</aside>
