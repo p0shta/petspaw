@@ -1,13 +1,37 @@
 {
   "files": {
-    "main.css": "/petspaw/static/css/main.7acaea2f.css",
-    "main.js": "/petspaw/static/js/main.07d3183d.js",
+    "main.css": "/petspaw/static/css/main.073e6ea7.css",
+    "main.js": "/petspaw/static/js/main.c2828b45.js",
+    "static/media/homePageBackground.svg": "/petspaw/static/media/homePageBackground.f4178bdf88c449df275bfc783a00a324.svg",
+    "static/media/navGallery.png": "/petspaw/static/media/navGallery.69ba4bdb455e5c8cd127.png",
+    "static/media/navVoting.png": "/petspaw/static/media/navVoting.9374b8e100d7741e1f70.png",
+    "static/media/navBreeds.png": "/petspaw/static/media/navBreeds.f93666435f7dee0dbc91.png",
+    "static/media/logo.svg": "/petspaw/static/media/logo.752433e0d168b2b15f7c670b45d63556.svg",
     "index.html": "/petspaw/index.html",
-    "main.7acaea2f.css.map": "/petspaw/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/petspaw/static/js/main.07d3183d.js.map"
+    "static/media/sort-up-checked.svg": "/petspaw/static/media/sort-up-checked.739e260c8833e356c489c1b2ad2db524.svg",
+    "static/media/sort-up.svg": "/petspaw/static/media/sort-up.db485a20099b96d82c68f38035903a77.svg",
+    "static/media/sort-down-checked.svg": "/petspaw/static/media/sort-down-checked.cc0558787cd8151108f9cc136977baa4.svg",
+    "static/media/sort-down.svg": "/petspaw/static/media/sort-down.0e988999bb21bf46767e345c2d1193b7.svg",
+    "static/media/favHeartSmall.svg": "/petspaw/static/media/favHeartSmall.24841d9c5881f9860c7cfeb444e7b73b.svg",
+    "static/media/favHeart.svg": "/petspaw/static/media/favHeart.44dfd6481a899af6da0b7a2bc6bcdaed.svg",
+    "static/media/favHeartBigWhite.svg": "/petspaw/static/media/favHeartBigWhite.857c34da9be0c8585e0ba25d5b07c248.svg",
+    "static/media/favHeartWhite.svg": "/petspaw/static/media/favHeartWhite.f227a565d20f4132b2ab1478ff5d7531.svg",
+    "static/media/dislikeFaceSmall.svg": "/petspaw/static/media/dislikeFaceSmall.c0b569aff7aa7e98ba74692e73efe85e.svg",
+    "static/media/likeFaceSmall.svg": "/petspaw/static/media/likeFaceSmall.46dd82e42e10fe2adbd0051df0904a7b.svg",
+    "static/media/search.svg": "/petspaw/static/media/search.518e734fea7126c7ee63d99a12ced82b.svg",
+    "static/media/dislikeFace.svg": "/petspaw/static/media/dislikeFace.5ac66e23329ea4cb164fc1a988e4b5c8.svg",
+    "static/media/likeFace.svg": "/petspaw/static/media/likeFace.751f2c7e020064d8811267ceec526386.svg",
+    "static/media/dislikeFaceBigWhite.svg": "/petspaw/static/media/dislikeFaceBigWhite.57dfd1a58ee0d5ec39c963b2bd8614e3.svg",
+    "static/media/dislikeFaceWhite.svg": "/petspaw/static/media/dislikeFaceWhite.57dfd1a58ee0d5ec39c963b2bd8614e3.svg",
+    "static/media/likeFaceBigWhite.svg": "/petspaw/static/media/likeFaceBigWhite.cd46571da4e65da3345c452ef3eb0501.svg",
+    "static/media/likeFaceWhite.svg": "/petspaw/static/media/likeFaceWhite.cd46571da4e65da3345c452ef3eb0501.svg",
+    "static/media/upd.svg": "/petspaw/static/media/upd.b71e26146d5c1eef6eeddddf31e9633a.svg",
+    "static/media/back.svg": "/petspaw/static/media/back.63189792d1aac2cff9680cd6dba14c4d.svg",
+    "main.073e6ea7.css.map": "/petspaw/static/css/main.073e6ea7.css.map",
+    "main.c2828b45.js.map": "/petspaw/static/js/main.c2828b45.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.073e6ea7.css",
+    "static/js/main.c2828b45.js"
   ]
 }
