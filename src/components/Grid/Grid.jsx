@@ -1,17 +1,18 @@
 import { Link, useLocation } from 'react-router-dom';
-import s from './Grid.module.scss';
 
+import s from './Grid.module.scss';
 import fav from '../../images/icons/favHeartSmall.svg';
 
 export default function Grid({ items }) {
     const { pathname } = useLocation();
     const isBreedPage = pathname.includes('breeds');
+    const isSearchPage = pathname.includes('search');
 
     return (
         <ul className={s.parent}>
             {items &&
                 items.map(item => {
-                    const { id, url, image, name } = item;
+                    const { id, image, url, name } = item;
 
                     return (
                         <li key={id} className={s.li}>
@@ -20,10 +21,15 @@ export default function Grid({ items }) {
                                 alt={name}
                                 className={s.image}
                             />
-                            {isBreedPage ? (
-                                <BreedsOverlay name={name} id={id} />
+                            {isBreedPage || isSearchPage ? (
+                                <BreedsOverlay
+                                    name={name}
+                                    id={id}
+                                    isBreedPage={isBreedPage}
+                                    isSearchPage={isSearchPage}
+                                />
                             ) : (
-                                <FavOverlay item={item} />
+                                <FavOverlay />
                             )}
                         </li>
                     );
@@ -32,18 +38,9 @@ export default function Grid({ items }) {
     );
 }
 
-function FavOverlay({ item }) {
-    const addFavToStorage = item => {
-        // const favorites = localStorage.getItem('favorites')
-        //     ? JSON.parse(localStorage.getItem('favorites'))
-        //     : [];
-        console.log(item);
-        // localStorage.setItem('favorites', JSON.stringify([item, ...favorites]));
-        // onActivityClick(item.id, 'added', 'Favorites');
-    };
-
+function FavOverlay() {
     return (
-        <div className={s.boxWrapFav} onClick={() => addFavToStorage(item)}>
+        <div className={s.boxWrapFav}>
             <div className={s.boxFav}>
                 <img src={fav} alt="fav" />
             </div>
@@ -51,14 +48,28 @@ function FavOverlay({ item }) {
     );
 }
 
-function BreedsOverlay({ name, id }) {
+function BreedsOverlay({ name, id, isBreedPage, isSearchPage }) {
     return (
-        <Link to={`${id}`}>
-            <div className={s.boxWrapBreed}>
-                <div className={s.boxBreed}>
-                    <p className={s.boxBreedTitle}>{name}</p>
-                </div>
-            </div>
-        </Link>
+        <>
+            {isBreedPage && (
+                <Link to={`${id}`}>
+                    <div className={s.boxWrapBreed}>
+                        <div className={s.boxBreed}>
+                            <p className={s.boxBreedTitle}>{name}</p>
+                        </div>
+                    </div>
+                </Link>
+            )}
+
+            {isSearchPage && (
+                <Link to={`/breeds/${id}`}>
+                    <div className={s.boxWrapBreed}>
+                        <div className={s.boxBreed}>
+                            <p className={s.boxBreedTitle}>{name}</p>
+                        </div>
+                    </div>
+                </Link>
+            )}
+        </>
     );
 }

@@ -8,31 +8,17 @@ export default function SidebarNavItem({ title, img, background }) {
 
     return (
         <li className={s.card}>
-            {!isActiveLink ? (
-                <NavLink to={`${title}`}>
-                    <div
-                        className={isActiveLink ? s.imgWrap__active : s.imgWrap}
-                        style={{ background }}
-                    >
-                        <img src={img} alt={title} className={s.img} />
-                    </div>
-                    <div className={isActiveLink ? s.btn__active : s.btn}>
-                        {title.toUpperCase()}
-                    </div>
-                </NavLink>
-            ) : (
-                <>
-                    <div
-                        className={isActiveLink ? s.imgWrap__active : s.imgWrap}
-                        style={{ background }}
-                    >
-                        <img src={img} alt={title} className={s.img} />
-                    </div>
-                    <div className={isActiveLink ? s.btn__active : s.btn}>
-                        {title.toUpperCase()}
-                    </div>
-                </>
-            )}
+            <NavLink to={`${title}`}>
+                <div
+                    className={isActiveLink ? s.imgWrap__active : s.imgWrap}
+                    style={{ background }}
+                >
+                    <img src={img} alt={title} className={s.img} />
+                </div>
+                <div className={isActiveLink ? s.btn__active : s.btn}>
+                    {title.toUpperCase()}
+                </div>
+            </NavLink>
         </li>
     );
 }
