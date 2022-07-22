@@ -25,34 +25,26 @@ export default function VotingPage({ onActivityClick, logActivity }) {
         });
     }, []);
 
-    const addLikedToStorage = item => {
-        const likes = localStorage.getItem('likes')
-            ? JSON.parse(localStorage.getItem('likes'))
+    const addBreedToStorage = (breed, storageName) => {
+        setLoading(true);
+        const storage = localStorage.getItem(storageName)
+            ? JSON.parse(localStorage.getItem(storageName))
             : [];
 
-        localStorage.setItem('likes', JSON.stringify([item, ...likes]));
-        getBreedForVoting().then(setBreed).finally(setLoading(false));
-        onActivityClick(item.id, 'added', 'Likes');
-    };
+        const isInStorage = storage.find(item => item.id === breed.id);
+        if (isInStorage) {
+            return getBreedForVoting().then(data => {
+                setBreed(data);
+                setLoading(false);
+            });
+        }
 
-    const addFavToStorage = item => {
-        const favorites = localStorage.getItem('favorites')
-            ? JSON.parse(localStorage.getItem('favorites'))
-            : [];
-
-        localStorage.setItem('favorites', JSON.stringify([item, ...favorites]));
-        getBreedForVoting().then(setBreed).finally(setLoading(false));
-        onActivityClick(item.id, 'added', 'Favorites');
-    };
-
-    const addDislikedToStorage = item => {
-        const dislikes = localStorage.getItem('dislikes')
-            ? JSON.parse(localStorage.getItem('dislikes'))
-            : [];
-
-        localStorage.setItem('dislikes', JSON.stringify([item, ...dislikes]));
-        getBreedForVoting().then(setBreed).finally(setLoading(false));
-        onActivityClick(item.id, 'added', 'Dislikes');
+        localStorage.setItem(storageName, JSON.stringify([breed, ...storage]));
+        getBreedForVoting().then(data => {
+            setBreed(data);
+            setLoading(false);
+        });
+        onActivityClick(breed.id, 'added', storageName);
     };
 
     return (
@@ -60,7 +52,8 @@ export default function VotingPage({ onActivityClick, logActivity }) {
             <Section>
                 {loading && <Loader />}
 
-                {breed &&
+                {!loading &&
+                    breed &&
                     breed.map(breed => {
                         const { id, url, name } = breed;
                         return (
@@ -74,16 +67,25 @@ export default function VotingPage({ onActivityClick, logActivity }) {
                                 </div>
                                 <div className={s.votingWrap}>
                                     <div
-                                        onClick={() => addLikedToStorage(breed)}
+                                        onClick={() =>
+                                            addBreedToStorage(breed, 'likes')
+                                        }
                                     >
                                         <img src={likeIcon} alt="like icon" />
                                     </div>
-                                    <div onClick={() => addFavToStorage(breed)}>
+                                    <div
+                                        onClick={() =>
+                                            addBreedToStorage(
+                                                breed,
+                                                'favorites'
+                                            )
+                                        }
+                                    >
                                         <img src={favIcon} alt="fav icon" />
                                     </div>
                                     <div
                                         onClick={() =>
-                                            addDislikedToStorage(breed)
+                                            addBreedToStorage(breed, 'dislikes')
                                         }
                                     >
                                         <img
@@ -103,13 +105,13 @@ export default function VotingPage({ onActivityClick, logActivity }) {
                             let icon;
 
                             switch (activity) {
-                                case 'Likes':
+                                case 'likes':
                                     icon = likeIconS;
                                     break;
-                                case 'Favorites':
+                                case 'favorites':
                                     icon = favIconS;
                                     break;
-                                case 'Dislikes':
+                                case 'dislikes':
                                     icon = dislikeIconS;
                                     break;
                                 default:
