@@ -7,16 +7,22 @@ export default function Section({ children }) {
     const { pathname } = useLocation();
     const { id } = useParams();
 
-    const isBreedsPage = children[0]?.type?.name === 'BreedsNavbar';
+    const isBreedsPage = children[0]?.key === 'breeds';
     const isGalleryPage = pathname.includes('/gallery');
     const isSearchPage = pathname.includes('/search');
     const isVotingPage = pathname.includes('/voting');
     const isBreedDetailPage = pathname.includes('breeds/');
 
+    const isInterestPage =
+        pathname.includes('/likes') ||
+        pathname.includes('/favorites') ||
+        pathname.includes('/dislikes');
+
     const currentPageTitle = isBreedDetailPage
         ? pathname.slice(1, pathname.slice(1).indexOf('/') + 1).toUpperCase()
         : pathname.slice(1).toUpperCase();
 
+    console.log(isBreedsPage);
     return (
         <section className={s.section}>
             <nav className={s.nav}>
@@ -32,6 +38,7 @@ export default function Section({ children }) {
             {isGalleryPage && children}
             {isSearchPage && children}
             {isVotingPage && children}
+            {isInterestPage && children[1]}
         </section>
     );
 }

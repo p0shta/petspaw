@@ -49,6 +49,7 @@ export default function BreedsPage() {
         <>
             <Section>
                 <BreedsNavbar
+                    key="breeds"
                     breeds={breeds}
                     handleBreedChange={setBreed}
                     limit={limit}
