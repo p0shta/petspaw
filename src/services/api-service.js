@@ -19,7 +19,3 @@ export const getFilteredGallery = async (limit, type) => {
     const data = await res.json();
     return data;
 };
-// https://api.thedogapi.com/v1/images/search?breed_id=pk1AAdloG&format=all&limit=10&order=desc&mime_types=all
-// breed_id=${breed.id}
-
-// breed_id=HJ1297iE7
