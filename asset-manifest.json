@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/petspaw/static/css/main.24d9d807.css",
-    "main.js": "/petspaw/static/js/main.47aa189f.js",
+    "main.css": "/petspaw/static/css/main.52845b02.css",
+    "main.js": "/petspaw/static/js/main.e9081bf8.js",
     "static/media/homePageBackground.svg": "/petspaw/static/media/homePageBackground.f4178bdf88c449df275bfc783a00a324.svg",
     "static/media/navGallery.png": "/petspaw/static/media/navGallery.69ba4bdb455e5c8cd127.png",
     "static/media/navVoting.png": "/petspaw/static/media/navVoting.9374b8e100d7741e1f70.png",
@@ -27,11 +27,12 @@
     "static/media/likeFaceWhite.svg": "/petspaw/static/media/likeFaceWhite.cd46571da4e65da3345c452ef3eb0501.svg",
     "static/media/upd.svg": "/petspaw/static/media/upd.b71e26146d5c1eef6eeddddf31e9633a.svg",
     "static/media/back.svg": "/petspaw/static/media/back.63189792d1aac2cff9680cd6dba14c4d.svg",
-    "main.24d9d807.css.map": "/petspaw/static/css/main.24d9d807.css.map",
-    "main.47aa189f.js.map": "/petspaw/static/js/main.47aa189f.js.map"
+    "static/media/favHeartSmallFilled.svg": "/petspaw/static/media/favHeartSmallFilled.3ae09292dc3cee25c24886f334664a3d.svg",
+    "main.52845b02.css.map": "/petspaw/static/css/main.52845b02.css.map",
+    "main.e9081bf8.js.map": "/petspaw/static/js/main.e9081bf8.js.map"
   },
   "entrypoints": [
-    "static/css/main.24d9d807.css",
-    "static/js/main.47aa189f.js"
+    "static/css/main.52845b02.css",
+    "static/js/main.e9081bf8.js"
   ]
 }
