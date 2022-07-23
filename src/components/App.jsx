@@ -14,33 +14,13 @@ import InterestItemsPage from 'pages/InterestItemsPage';
 
 export const App = () => {
     const [search, setSearch] = useState('');
-    const [logActivity, setLogActivity] = useState(
-        localStorage.getItem('logActivity')
-            ? JSON.parse(localStorage.getItem('logActivity'))
-            : []
-    );
+
     const navigate = useNavigate();
 
     const handleSubmit = query => {
         setSearch(query);
 
         navigate('/search', { replace: true });
-    };
-
-    const handleActivity = (itemId, action, activity) => {
-        const log = {
-            id: Date.now(),
-            itemId,
-            action,
-            activity,
-            date: {
-                hours: new Date().getHours(),
-                minutes: new Date().getMinutes(),
-            },
-        };
-        setLogActivity([log, ...logActivity]);
-
-        localStorage.setItem('logActivity', JSON.stringify(logActivity));
     };
 
     return (
@@ -50,15 +30,7 @@ export const App = () => {
                 <Searchbar onSubmit={handleSubmit} />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route
-                        path="/voting"
-                        element={
-                            <VotingPage
-                                onActivityClick={handleActivity}
-                                logActivity={logActivity}
-                            />
-                        }
-                    />
+                    <Route path="/voting" element={<VotingPage />} />
                     <Route path="/breeds" element={<BreedsPage />} />
                     <Route path="/breeds/:id" element={<BreedDetails />} />
                     <Route

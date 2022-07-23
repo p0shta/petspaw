@@ -2,11 +2,16 @@ import { Link, useLocation } from 'react-router-dom';
 
 import s from './Grid.module.scss';
 import fav from '../../images/icons/favHeartSmall.svg';
+import favored from '../../images/icons/favHeartSmallFilled.svg';
 
 export default function Grid({ items }) {
     const { pathname } = useLocation();
     const isBreedPage = pathname.includes('breeds');
     const isSearchPage = pathname.includes('search');
+
+    const favorites = localStorage.getItem(`favorites`)
+        ? JSON.parse(localStorage.getItem(`favorites`))
+        : [];
 
     return (
         <ul className={s.parent}>
@@ -29,7 +34,7 @@ export default function Grid({ items }) {
                                     isSearchPage={isSearchPage}
                                 />
                             ) : (
-                                <FavOverlay />
+                                <FavOverlay favorites={favorites} id={id} />
                             )}
                         </li>
                     );
@@ -38,11 +43,13 @@ export default function Grid({ items }) {
     );
 }
 
-function FavOverlay() {
+function FavOverlay({ favorites, id }) {
+    const isFavored = favorites.find(item => item.id === id);
+
     return (
         <div className={s.boxWrapFav}>
             <div className={s.boxFav}>
-                <img src={fav} alt="fav" />
+                <img src={isFavored ? favored : fav} alt="fav" />
             </div>
         </div>
     );

@@ -8,7 +8,11 @@ import s from './InterestItemsPage.module.scss';
 
 export default function InterestItemsPage() {
     const { pathname } = useLocation();
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState(
+        localStorage.getItem(`${pathname.slice(1)}`)
+            ? JSON.parse(localStorage.getItem(`${pathname.slice(1)}`))
+            : []
+    );
 
     useEffect(() => {
         setItems(
@@ -21,11 +25,11 @@ export default function InterestItemsPage() {
     return (
         <>
             <Section>
-                {items.length === 0 ? (
+                {items.length === 0 && (
                     <p className={s.subtitle}>No item found</p>
-                ) : null}
+                )}
 
-                {items && <Grid items={items} />}
+                {items.length > 0 && <Grid items={items} />}
             </Section>
         </>
     );

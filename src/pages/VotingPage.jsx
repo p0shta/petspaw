@@ -13,8 +13,13 @@ import dislikeIconS from '../images/icons/dislikeFaceSmall.svg';
 
 import s from './VotingPage.module.scss';
 
-export default function VotingPage({ onActivityClick, logActivity }) {
+export default function VotingPage() {
     const [breed, setBreed] = useState(null);
+    const [logActivity, setLogActivity] = useState(
+        localStorage.getItem('logActivity')
+            ? JSON.parse(localStorage.getItem('logActivity'))
+            : []
+    );
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -44,100 +49,131 @@ export default function VotingPage({ onActivityClick, logActivity }) {
             setBreed(data);
             setLoading(false);
         });
-        onActivityClick(breed.id, 'added', storageName);
+        createLogActivity(breed.id, 'added', storageName);
     };
 
+    const createLogActivity = (itemId, action, activity) => {
+        const log = {
+            id: Date.now(),
+            itemId,
+            action,
+            activity,
+            date: {
+                hours: new Date().getHours(),
+                minutes: new Date().getMinutes(),
+            },
+        };
+        setLogActivity([log, ...logActivity]);
+
+        localStorage.setItem('logActivity', JSON.stringify(logActivity));
+    };
     return (
         <>
             <Section>
-                {loading && <Loader />}
+                <div className={s.view}>
+                    {loading && <Loader />}
 
-                {!loading &&
-                    breed &&
-                    breed.map(breed => {
-                        const { id, url, name } = breed;
-                        return (
-                            <div key={id} className={s.view}>
-                                <div className={s.imgWrap}>
-                                    <img
-                                        src={url}
-                                        alt={name}
-                                        className={s.img}
-                                    />
-                                </div>
-                                <div className={s.votingWrap}>
-                                    <div
-                                        onClick={() =>
-                                            addBreedToStorage(breed, 'likes')
-                                        }
-                                    >
-                                        <img src={likeIcon} alt="like icon" />
-                                    </div>
-                                    <div
-                                        onClick={() =>
-                                            addBreedToStorage(
-                                                breed,
-                                                'favorites'
-                                            )
-                                        }
-                                    >
-                                        <img src={favIcon} alt="fav icon" />
-                                    </div>
-                                    <div
-                                        onClick={() =>
-                                            addBreedToStorage(breed, 'dislikes')
-                                        }
-                                    >
+                    {!loading &&
+                        breed &&
+                        breed.map(breed => {
+                            const { id, url, name } = breed;
+                            return (
+                                <div key={id}>
+                                    <div className={s.imgWrap}>
                                         <img
-                                            src={dislikeIcon}
-                                            alt="dislike icon"
+                                            src={url}
+                                            alt={name}
+                                            className={s.img}
                                         />
                                     </div>
+                                    <div className={s.votingWrap}>
+                                        <div
+                                            onClick={() =>
+                                                addBreedToStorage(
+                                                    breed,
+                                                    'likes'
+                                                )
+                                            }
+                                        >
+                                            <img
+                                                src={likeIcon}
+                                                alt="like icon"
+                                            />
+                                        </div>
+                                        <div
+                                            onClick={() =>
+                                                addBreedToStorage(
+                                                    breed,
+                                                    'favorites'
+                                                )
+                                            }
+                                        >
+                                            <img src={favIcon} alt="fav icon" />
+                                        </div>
+                                        <div
+                                            onClick={() =>
+                                                addBreedToStorage(
+                                                    breed,
+                                                    'dislikes'
+                                                )
+                                            }
+                                        >
+                                            <img
+                                                src={dislikeIcon}
+                                                alt="dislike icon"
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        );
-                    })}
-
-                <ul className={s.activityList}>
-                    {logActivity &&
-                        logActivity.map(item => {
-                            const { itemId, action, activity, date } = item;
-                            let icon;
-
-                            switch (activity) {
-                                case 'likes':
-                                    icon = likeIconS;
-                                    break;
-                                case 'favorites':
-                                    icon = favIconS;
-                                    break;
-                                case 'dislikes':
-                                    icon = dislikeIconS;
-                                    break;
-                                default:
-                                    break;
-                            }
-
-                            return (
-                                <li key={itemId} className={s.activity}>
-                                    <span className={s.activityTime}>
-                                        {date.hours}:{date.minutes}
-                                    </span>{' '}
-                                    ImageId:{' '}
-                                    <span className={s.activityText}>
-                                        {itemId}
-                                    </span>{' '}
-                                    was {action} to {activity}
-                                    <img
-                                        src={icon}
-                                        alt={activity}
-                                        className={s.activityImg}
-                                    />
-                                </li>
                             );
                         })}
-                </ul>
+                </div>
+
+                {logActivity && <ActivityList logActivity={logActivity} />}
             </Section>
+        </>
+    );
+}
+
+function ActivityList({ logActivity }) {
+    return (
+        <>
+            <ul className={s.activityList}>
+                {logActivity.map(item => {
+                    const { itemId, id, action, activity, date } = item;
+                    let icon;
+
+                    switch (activity) {
+                        case 'likes':
+                            icon = likeIconS;
+                            break;
+                        case 'favorites':
+                            icon = favIconS;
+                            break;
+                        case 'dislikes':
+                            icon = dislikeIconS;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    return (
+                        <li key={id} className={s.activity}>
+                            <span className={s.activityTime}>
+                                {date.hours}:{date.minutes}
+                            </span>{' '}
+                            ImageId:{' '}
+                            <span className={s.activityText}>{itemId}</span> was{' '}
+                            {action} to {activity}
+                            <img
+                                src={icon}
+                                alt={activity}
+                                className={s.activityImg}
+                            />
+                        </li>
+                    );
+                })}
+            </ul>
         </>
     );
 }

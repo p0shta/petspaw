@@ -22,7 +22,6 @@ export default function Section({ children }) {
         ? pathname.slice(1, pathname.slice(1).indexOf('/') + 1).toUpperCase()
         : pathname.slice(1).toUpperCase();
 
-    console.log(isBreedsPage);
     return (
         <section className={s.section}>
             <nav className={s.nav}>
@@ -38,7 +37,7 @@ export default function Section({ children }) {
             {isGalleryPage && children}
             {isSearchPage && children}
             {isVotingPage && children}
-            {isInterestPage && children[1]}
+            {isInterestPage && children}
         </section>
     );
 }

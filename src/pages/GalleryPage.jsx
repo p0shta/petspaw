@@ -33,27 +33,6 @@ export default function GalleryPage() {
         });
     }, [limit, type, update]);
 
-    // useEffect(() => {
-    //     if (!filteredItems) return;
-
-    //     if (order === 'random') {
-    //         const items = filteredItems.sort((a, b) =>
-    //             a.id.localeCompare(b.id)
-    //         );
-    //         setFilteredItems(items);
-    //     } else if (order === 'desc') {
-    //         const items = filteredItems.sort((a, b) =>
-    //             a.id.localeCompare(b.id)
-    //         );
-    //         setFilteredItems(items);
-    //     } else if (order === 'asc') {
-    //         const items = filteredItems.sort((a, b) =>
-    //             b.id.localeCompare(a.id)
-    //         );
-    //         setFilteredItems(items);
-    //     }
-    // }, [order]);
-
     const handleSubmit = e => {
         e.preventDefault();
         setUpdate(prev => !prev);
